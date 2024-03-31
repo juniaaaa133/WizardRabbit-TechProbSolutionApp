@@ -1,0 +1,263 @@
+/* atkinson-hyperlegible-latin-400-normal */
+@font-face {
+    font-family: 'Atkinson Hyperlegible';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 400;
+    src: url(https://cdn.jsdelivr.net/fontsource/fonts/atkinson-hyperlegible@latest/latin-400-normal.woff2) format('woff2'), url(https://cdn.jsdelivr.net/fontsource/fonts/atkinson-hyperlegible@latest/latin-400-normal.woff) format('woff');
+    unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+  }
+/* barlow-semi-condensed-latin-400-normal */
+@font-face {
+    font-family: 'Barlow Semi Condensed';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 400;
+    src: url(https://cdn.jsdelivr.net/fontsource/fonts/barlow-semi-condensed@latest/latin-400-normal.woff2) format('woff2'), url(https://cdn.jsdelivr.net/fontsource/fonts/barlow-semi-condensed@latest/latin-400-normal.woff) format('woff');
+    unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+  }
+/* roboto-slab-latin-wght-normal */
+@font-face {
+    font-family: 'Roboto Slab Variable';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 100 900;
+    src: url(https://cdn.jsdelivr.net/fontsource/fonts/roboto-slab:vf@latest/latin-wght-normal.woff2) format('woff2-variations');
+    unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+  }
+
+body {  scroll-behavior: smooth; padding: 0; margin: 0; background-color: var(--main);}
+
+:root {
+    --main : #E6ECE5;
+    --mainD : #2e3536;
+    --sec : #B90E1E;
+    --ter : #6196B4;
+
+    --fcl : #222629;
+    --fclD : #fafafa;
+    --fcl2 : #730001;
+    --fcl3 :  #c0c0c0;
+    --fcl3D :  #c0c0c0;
+
+}
+
+.bg-main {background-color :var(--main) }
+.bg-mainD {background-color: var(--mainD)  ;}
+.bg-sec {background-color: var(--sec)  } /* Bg-secD*/
+.bg-ter {background-color: var(--ter) ;}
+.badge-cl {background-color: #6a512f}
+
+.fontcl{color :var(--fcl) }
+.fontclD { color :var(--fclD) }
+.fontcl2 {color :var(--fcl2) }
+.fontcl3 {color :var(--fcl3)}
+.fontcl3D {color :var(--fcl3D)}
+
+
+.fontclH {color:var(--fcl);}
+.fontclH:hover {color:var(--fcl2);}
+.fontclDH {color:--fclD;}
+.fontclDH:hover {color:var(--fcl2);}
+
+.hidden {
+    display: none;
+}
+.btnf {font-size: 14px; font-weight: 600;}
+.frame {
+    padding: 0 40px;
+}
+.center-abs {position: absolute; top: 0 ;right: 0 ; left: 0; bottom: 0; margin: auto}
+.bcu {cursor: pointer; user-select: none;}
+.pic {object-fit: cover; object-position: center;}
+.bar {margin-top: 100px;}
+.big-bar{margin-top: 200px;}
+.mini-bar {margin-top: 35px;}
+.logo-line {
+    height: 40px;
+    width:.5px;
+    background-color: #a8a8a8;;
+}
+.sec-f {      
+     font-family: 'Barlow Semi Condensed';
+}
+.main-f { 
+    font-family: 'Atkinson Hyperlegible';
+}
+.sys-f {  
+     font-family: 'Roboto Slab Variable';
+}
+
+
+.mega-trans {transition: all; transition-duration: .5s;}
+.trans {transition: all; transition-duration: .3s;}
+.displaymb {
+    display: none;
+}
+.displaytb {
+    display: none;
+}
+.displaylp {
+    display: inherit;
+}
+.displaylp-tb {
+    display: inherit;
+}
+.btn1 {
+    width: 100%;
+    height: fit-content;
+    padding: 8px 20px;
+    border-radius: 2px;
+    background-color: var(--ter);
+    border: 2px solid var(--ter);
+    color : var(--fcl);
+}
+.btn1:hover {
+    background-color: inherit;
+}
+
+.btn2 {
+    width: 100%;
+    height: fit-content;
+    padding: 8px 20px;
+    border-radius: 2px;
+    background-color: #3d3838;
+    border: 2px solid #3d3838;
+    color : var(--fcl);
+}
+.btn2:hover {
+    background-color: inherit;
+}
+.inp {
+    width: 100%;
+    height: 22px;
+    background-color:inherit;
+    padding: 15px 12px;
+    border-radius: 5px;
+    outline: inherit;
+    border:solid 2px #8d8d8deb;
+    outline-offset: inherit;
+    color : var(--fcl)
+}
+.typ-input {
+    width:65%;
+    color:rgba(34, 34, 34, 0.871);
+    font-weight: 600;
+    border-radius: 23px;
+    outline-offset: inherit;
+    outline: inherit;
+    border:inherit;
+    padding: 12px 16px;
+    background-color: #FFFFFF;
+}
+.typ-input:focus{
+    outline-offset: inherit;
+    border:1px solid #68E5B2;
+    padding-left: 25px;
+    outline: inherit;
+}
+
+.titF-42 {font-size: 42px; font-weight: 600;}
+.titF-38{font-size: 38px; font-weight: 500;}
+.titF-72{font-size: 72px; font-weight: 700;}
+.titF-24 {font-size : 24px}
+.titF-20 {font-size : 20px; font-weight:500}
+.titF-16 {font-size : 16px;}
+.titF-14 {font-size : 14px;}
+
+.titF {
+    font-size: 48px;
+    font-weight: 700;
+    color:rgb(42, 41, 41);
+    line-height: 3rem;
+}
+
+.grid-ctn {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: space-between;
+    margin: 0 auto;
+    gap:16px;
+    width:90%;
+}
+.drawer {
+    overflow: auto;
+    max-height: 420px;
+}
+.drawer::-webkit-scrollbar{
+    display: none;
+}
+.iteM-ctn {
+    width:210px;
+}
+
+@media (max-width: 990px) {
+  
+    .frame {padding : 0 60px}
+    .titF {font-size: 42px;}
+    .titF-72{font-size: 52px;}
+    .titF-38{font-size: 32px; font-weight: 500;}
+.titF-20 {font-size : 18px; font-weight:500}
+.grid-ctn {
+    grid-template-columns: auto auto;
+    justify-content: center;
+    margin: 0 auto;
+    gap:33px;
+}
+.drawer {
+    height: 520px;
+}
+}
+@media (max-width: 768px) {
+    .displaytb {
+        display: inherit;
+    }
+    .displaylp {
+        display: none;
+    }
+    
+    .titF {font-size: 36px;}
+    .titF-38{font-size: 28px; font-weight: 500;}
+    .titF-72{font-size: 40px;}
+.titF-20 {font-size : 18px; }
+.titF-42 {font-size: 36px; }
+.grid-ctn {
+    grid-template-columns: 100%;
+    padding:0px;
+    margin: auto;
+    gap:30px;
+    width:49%;
+}
+.iteM-ctn {
+    width:190px;
+}
+}
+@media (max-width: 600px) {
+    .frame {
+        padding: 0 20px;
+    }
+    
+}
+@media (max-width: 480px) {
+    .displaylp-tb {
+        display: none;
+    }
+    .displaytb {
+        display: none;
+    }
+    .displaymb {
+        display: inherit;
+    }
+    .frame {
+        padding: 0 20px;
+    }
+    .drawer {
+        height: 650px;
+    }
+    .iteM-ctn {
+        width:300px;
+    }
+    .frame {
+        padding: 0 10px;
+    }
+}

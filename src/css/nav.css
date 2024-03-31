@@ -1,0 +1,82 @@
+.nv-main {
+    position: sticky;
+    top:0;
+    left:0;
+    background-color: #f7f7f7;
+}
+.nv-ctn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:7px 40px;
+}
+.nv-logo-ctn {
+display: flex;
+gap:5px;
+align-items: center;
+}
+.nv-logo {
+    width:40px;
+    height: 40px;
+}
+
+.nvs-ctn {
+   display: flex;
+   gap:50px;
+   align-items: center;
+}
+.nvs-ctn-mb {
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 280px;
+    position: fixed;
+    background-color: #f7f7f7;
+    padding:12px;
+}
+.nvs {
+
+}
+.nv-srh {
+    width: 330px;
+}
+.nvmb-srh {
+    width:80%;
+    padding:15px;
+}
+.nv-srh-icn {
+    display: none;
+    font-size: 18px;
+
+}
+.nv-cancel-icn{
+    font-size: 18px;
+    position: absolute;
+    top:20px;
+    right:20px;
+}
+@media (max-width: 990px) {
+    .nv-srh-icn {
+        display: block;
+    }
+    .nv-srh {
+        display: none;
+    }
+
+}
+@media (max-width:768px) {
+    .nvs{
+        display: none;
+    }
+    .nvs-ctn {
+        gap:30px;
+     }
+}
+@media (max-width:480px) {
+    .nv-ctn {
+        padding:7px 20px;
+    }
+}
