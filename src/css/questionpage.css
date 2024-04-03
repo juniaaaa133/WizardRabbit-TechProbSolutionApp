@@ -1,0 +1,32 @@
+.qt-main {
+margin-top: 40px;
+padding: 0 40px;
+}
+.qt-title {
+    font-size: 26px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+.q-ctn {
+    display: grid;
+    grid-template-columns: 49% 49%;
+    gap:20px;
+    width:100%;
+    justify-content: space-between;
+
+}
+
+@media (max-width:768px) {
+    .q-ctn {
+        grid-template-columns: 95%;
+        justify-content: center;
+    }
+}
+@media (max-width:768px) {
+    .q-ctn {
+        grid-template-columns: 100%;
+    }
+    .qt-main {
+        padding: 0 20px;
+        }
+}

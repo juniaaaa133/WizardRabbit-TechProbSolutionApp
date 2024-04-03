@@ -1,0 +1,18 @@
+.cate-main {
+    width: 100%;
+    height: 80px;
+    padding:12px;
+    display: flex;
+    flex-direction: column;
+    gap:15px;
+    border-radius: 5px;
+}
+.cate-main:hover {
+    background-color: #eaead5;
+}
+.cate-title {
+    font-size: 18px;
+}
+.cate-desc {
+    font-size: 13px;
+}

@@ -31,13 +31,13 @@ body {  scroll-behavior: smooth; padding: 0; margin: 0; background-color: var(--
 :root {
     --main : #E6ECE5;
     --mainD : #2e3536;
-    --sec : #B90E1E;
-    --ter : #6196B4;
+    --sec : #DEE6E9;
+    --ter : #EAEBE7;
 
-    --fcl : #222629;
+    --fcl : #262626;
     --fclD : #fafafa;
     --fcl2 : #730001;
-    --fcl3 :  #c0c0c0;
+    --fcl3 :  #7a7a7a;
     --fcl3D :  #c0c0c0;
 
 }
@@ -104,12 +104,14 @@ body {  scroll-behavior: smooth; padding: 0; margin: 0; background-color: var(--
     display: inherit;
 }
 .btn1 {
+    font-size: 14px;
     width: 100%;
     height: fit-content;
     padding: 8px 20px;
     border-radius: 2px;
-    background-color: var(--ter);
-    border: 2px solid var(--ter);
+    background-color: inherit;
+    border: 2px solid var(--fcl2);
+    border-radius: 5px;
     color : var(--fcl);
 }
 .btn1:hover {
@@ -130,7 +132,7 @@ body {  scroll-behavior: smooth; padding: 0; margin: 0; background-color: var(--
 }
 .inp {
     width: 100%;
-    height: 22px;
+    height: 30px;
     background-color:inherit;
     padding: 15px 12px;
     border-radius: 5px;

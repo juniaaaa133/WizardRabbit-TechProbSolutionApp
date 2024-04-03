@@ -1,0 +1,27 @@
+.q {
+    width: 100%;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+   justify-content:  center;
+    gap: 20px;
+    padding: 10px;
+    border-radius: 5px;
+}
+.q:hover {
+    background-color: #eaead5;
+}
+.q-title {
+    font-size: 20px;
+    font-weight: 600;
+}
+@media (max-width: 990px) {
+    .q{
+        height: 270px;
+    }
+}
+@media (max-width: 480px) {
+    .q{
+        height: 290px;
+    }
+}

@@ -1,0 +1,26 @@
+.cat-main {
+    padding:  0 60px;
+}
+.cat-ctn {
+    width:100%;
+    display: grid;
+    grid-template-columns: 24% 24% 24% 24%;
+    gap:10px;
+    justify-content: space-between;
+}
+@media (max-width: 768px) {
+    .cat-main {
+        padding:  0 40px;
+    }
+ .cat-ctn {
+    grid-template-columns: 32% 32% 32%;
+ }   
+}
+@media (max-width: 480px) {
+    .cat-main {
+        padding:  0 20px;
+    }
+ .cat-ctn {
+    grid-template-columns: 49% 49%;
+ }   
+}
