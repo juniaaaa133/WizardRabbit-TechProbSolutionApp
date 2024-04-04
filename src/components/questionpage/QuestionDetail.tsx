@@ -1,15 +1,35 @@
 'use client'
 import TagX from '@/ELEMENTX/Ui/Tag/TagX'
-import React, { useEffect, useState } from 'react'
+import React, { ChangeEvent, ChangeEventHandler, useEffect, useRef, useState } from 'react'
 import Question from '../question/Question'
 import Category from '../category/Category';
 import { DummyQuestionType } from '@/types/dummy_types';
 import { dummy_data } from '@/data';
+import emailjs from 'emailjs-com';
 
 const QuestionDetailPage = ({id} : {
     id : string,
 }) =>
  {
+
+    
+  const form = useRef<HTMLFormElement>();
+  let [text,setText] = useState('Submit');
+
+  const emailHandling = (e : ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
+   if(form.current !== undefined){
+    emailjs.sendForm("service_wckb7fk", "template_16mn7p6", form.current, "xcY5FjryFkyNJy_8c").then(
+        (result) => {
+          setText('Submitted');
+        },
+        (error) => {
+          // console.log(error.text);
+        }
+      );
+   }
+   
+  };
 
 let [question,setQuestion] = useState<DummyQuestionType>();
 
@@ -62,13 +82,13 @@ useEffect(()=>{
                     `
                 }
             </div>
-            <div className="qd-form-ctn">
+            <form  className="qd-form-ctn">
                 <textarea className='qd-txt fontcl main-f ' placeholder='Share question here'></textarea>
                 <div className="qd-btn-ctn">
                 <button className='btn1 main-f fontcl' >Share my question</button>
 
                 </div>
-            </div>
+            </form>
         </div>
         <div className="bar"></div>
         <div className="qd-rlt-ctn">
