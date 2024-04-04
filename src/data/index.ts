@@ -51,7 +51,23 @@ export const dummy_data : DummyDataType = {
 A programming language and core technology of the Web.`
                 }
             ]
-        }
+        },
+        {
+            id: 4,
+            name : 'Ui/Ux',
+            type : 'ui-ux',
+            questions : [
+                {
+                    id: 4,
+                    category_path : 'ui-ux',
+                    date : 'February 31,2023',
+                    title : 'How to understand rare basic method of Ui and Ux ? ' ,
+                    answer :
+                     `
+I suggest you to learn these sections - Visual Communication,Composition,Typography,Grid and Layout.Those will develop your design skill.`
+                }
+            ]
+        },
     ],
     questions : [
         {
@@ -85,6 +101,16 @@ Cascading Style Sheets is a style sheet language used for specifying the present
             answer :
              `
 A programming language and core technology of the Web.`
+        },
+        {
+            id: 4,
+            category: "Ui/Ux",
+            category_path : 'ui-ux',
+            date : 'February 31,2023',
+            title : 'How to understand rare basic method of Ui and Ux ? ' ,
+            answer :
+             `
+I suggest you to learn these sections - Visual Communication,Composition,Typography,Grid and Layout.Those will develop your design skill.`
         }
     ]
 }

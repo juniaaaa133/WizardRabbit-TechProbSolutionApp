@@ -75,9 +75,13 @@ useEffect(()=>{
         <div className="qt-title main-f ">Other Categories</div>
 <div className="qd-cate-ctn">
     {
-        dummy_data.categories.map((data,index: number) => (
-            <Category title={data.name} link_path={data.type} questions_count={data.questions.length} key={index} />
-        ))
+        dummy_data.categories.map((data,index: number) => {
+            if(question?.category_path !== data.type){
+                return(
+                    <Category title={data.name} link_path={data.type} questions_count={data.questions.length} key={index} />
+                )
+            }
+        })
     }
 
 
