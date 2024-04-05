@@ -1,17 +1,35 @@
 'use client'
 import Link from 'next/link'
-import React, { useState } from 'react'
+import React, { ChangeEvent, useState } from 'react'
 import { CiSearch } from "react-icons/ci";
 import { TbZoomCancel } from "react-icons/tb";
 import { CiMenuBurger } from "react-icons/ci";
 import { FaPlus } from "react-icons/fa6";
 import TagX from '@/ELEMENTX/Ui/Tag/TagX'
+import { dummy_data } from '@/data';
+import { DummyQuestionType } from '@/types/dummy_types';
 
 const Nav = () => {
 
 let [isOpenedSearch,setIsOpenedSearch] = useState(false);
 let [isOpenedMenu,setIsOpenedMenu] = useState(false);
-let txt = '    Hydration is when using something like table inside div or using client staff inside server in nextjs.To fix this , just be aware of using wrong html tag and placing conditional statement in server client section.';
+let [questionData,setQuestionData] = useState<DummyQuestionType[]>();
+
+//Data are fetched from api in real time.
+let FetchData = () => {
+//api code instead of dummy_data;
+}
+
+let FilterData = (e : ChangeEvent<HTMLInputElement>) => {
+  if(e.currentTarget.value == '') {
+    setQuestionData([]);
+  }else {
+    let filteredData = dummy_data.questions.filter((data) => (
+        data.title.toLocaleLowerCase().includes(e.currentTarget.value.toLocaleLowerCase())
+    ));
+setQuestionData(filteredData);
+  }
+}
 
   return (
     <>
@@ -31,27 +49,33 @@ let txt = '    Hydration is when using something like table inside div or using 
             </div>
             
             <div className="nv-srh">
-                <input placeholder='Search ' type="text" className="inp main-f text-[14px]" />
+                <input onChange={(e) => FilterData(e)} placeholder='Search ' type="text" className="inp main-f text-[14px]" />
             </div>
         </div>
     <div className="nvmb-srh-ctn">
     <div className={`${isOpenedSearch == true ? "nvmb-srh" : 'hidden'}`}>
-        <input placeholder='Search ' type="text" className="inp main-f text-[14px]" />
+        <input onChange={(e) => FilterData(e)} placeholder='Search ' type="text" className="inp main-f text-[14px]" />
         </div>
     </div>
     <div className="nv-srh-res-main">
-    <div className="nv-srh-res-ctn">
-        <div className="nv-res bg-ter mega-trans bcu">
-<TagX text='JavaScript'/>
-<div className="nv-title main-f">
-    What is hydration and how to fix that error?
-</div>
-<div className="nv-ans main-f fontcl3">
-    {
-        txt.length > 90 ? txt.substring(0,90) + '...See More' : txt
-    }
-</div>
-        </div>
+    <div className={questionData?.length == 0 || questionData == undefined ? "nv-srh-res-ctn-closed" : "nv-srh-res-ctn"}>
+       {
+        questionData?.map((data,index: number) => (
+            <div key={index} className="nv-res bg-ter mega-trans bcu">
+            <TagX text='JavaScript'/>
+            <div className="nv-title main-f">
+                {
+                 data.title.length > 60 ? data.title.substring(0,60) + '...' : data.title
+                }
+                </div>
+            <div className="nv-ans main-f fontcl3">
+                {
+                    data.answer.length > 90 ? data.answer.substring(0,90) + '...See More' : data.answer
+                }
+            </div>
+                    </div>
+        ))
+       }
     
         </div>
     </div>
