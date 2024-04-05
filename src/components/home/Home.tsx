@@ -1,10 +1,22 @@
 'use client'
+import { HandleEmail } from '@/features/emailjs/sendEmail';
 import { useRouter } from 'next/navigation'
-import React from 'react'
+import React, { ChangeEvent, useRef, useState } from 'react'
 
 const Homepage = () => {
 
 let route = useRouter();
+let emailMessageRef = useRef<HTMLFormElement>(null)
+let [isMessaged,setIsMessaged] = useState<boolean>(false);
+
+//Made a function that send submitted data to emailjs using useRef.
+let HandleSubmit = (e :ChangeEvent<HTMLFormElement>) => {
+  e.preventDefault();
+   if(emailMessageRef.current !== null){
+    HandleEmail(emailMessageRef.current);
+    setIsMessaged(true);
+   }
+}
 
   return (
     <div className='hm-main'>
@@ -27,12 +39,12 @@ let route = useRouter();
         <div className="hm-hero-layout "></div>
       </div>
       <div className="hm-form-ctn bg-ter">
-<form action="POST" className="hm-form">
+<form ref={emailMessageRef} onSubmit={HandleSubmit} className="hm-form">
 <div className="hm-inp-ctn">
-<input placeholder='Share question' type="text" className="inp main-f fontcl text-[14px]" />
+<input name='message' placeholder='Share question' type="text" className="inp main-f fontcl text-[14px]" />
 </div>
   <div className="hm-btn-ctn">
-    <button className="btn1">Share Now</button>
+    <button className="btn1">{isMessaged == true ? ' Shared' : 'Share Now' }</button>
   </div>
 </form>
 <div className="hm-form-title main-f fontcl">If you have question to ask, feel free to share us.</div>

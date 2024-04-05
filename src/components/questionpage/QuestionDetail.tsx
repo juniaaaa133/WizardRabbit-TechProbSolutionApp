@@ -6,30 +6,25 @@ import Category from '../category/Category';
 import { DummyQuestionType } from '@/types/dummy_types';
 import { dummy_data } from '@/data';
 import emailjs from 'emailjs-com';
+import { HandleEmail } from '@/features/emailjs/sendEmail';
 
 const QuestionDetailPage = ({id} : {
     id : string,
 }) =>
  {
 
-    
-  const form = useRef<HTMLFormElement>();
-  let [text,setText] = useState('Submit');
+let emailMessageRef = useRef<HTMLFormElement>(null)
+let [isMessaged,setIsMessaged] = useState<boolean>(false);
 
-  const emailHandling = (e : ChangeEvent<HTMLInputElement>) => {
-    e.preventDefault();
-   if(form.current !== undefined){
-    emailjs.sendForm("service_wckb7fk", "template_16mn7p6", form.current, "xcY5FjryFkyNJy_8c").then(
-        (result) => {
-          setText('Submitted');
-        },
-        (error) => {
-          // console.log(error.text);
-        }
-      );
+//Made a function that send submitted data to emailjs using useRef.
+let HandleSubmit = (e :ChangeEvent<HTMLFormElement>) => {
+  e.preventDefault();
+   if(emailMessageRef.current !== null){
+    HandleEmail(emailMessageRef.current);
+    setIsMessaged(true);
+    
    }
-   
-  };
+}
 
 let [question,setQuestion] = useState<DummyQuestionType>();
 
@@ -70,7 +65,6 @@ useEffect(()=>{
                     }
                 })
             }
-
         </div>
         </div>
         <div className="bar"></div>
@@ -82,10 +76,10 @@ useEffect(()=>{
                     `
                 }
             </div>
-            <form  className="qd-form-ctn">
+            <form ref={emailMessageRef} onSubmit={HandleSubmit}  className="qd-form-ctn">
                 <textarea className='qd-txt fontcl main-f ' placeholder='Share question here'></textarea>
                 <div className="qd-btn-ctn">
-                <button className='btn1 main-f fontcl' >Share my question</button>
+                <button className='btn1 main-f fontcl' >{isMessaged == true ? 'Successfully Shared' : 'Share My Question' }</button>
 
                 </div>
             </form>
