@@ -61,7 +61,7 @@ useEffect(()=>{
                 dummy_data.questions.map((data,index: number) => {
                     if(data.id !== parseInt(id)){
                         return(
-                            <Question date={data.date} id={data.id} link_url={data.category_path} key={index} tag={data.category} answer={data.title} question={data.answer} />
+                            <Question date={data.date} id={data.id} link_url={data.category_path} key={index} tag={data.category} answer={data.answer} question={data.title} />
                         )
                     }
                 })
