@@ -7,6 +7,7 @@ import { DummyQuestionType } from '@/types/dummy_types';
 import { dummy_data } from '@/data';
 import emailjs from 'emailjs-com';
 import { HandleEmail } from '@/features/emailjs/sendEmail';
+import LoaderS from '@/ELEMENTX/Ui/Loader/LoaderS';
 
 const QuestionDetailPage = ({id} : {
     id : string,
@@ -43,7 +44,7 @@ useEffect(()=>{
 
     return (
     question == undefined ? 
-    <div className="">Loading...</div>
+    <LoaderS />
     : 
     <div className='qd-main'>
         <div className="qd-ctn">

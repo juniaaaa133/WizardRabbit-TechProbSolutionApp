@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import Question from '../question/Question';
 import { dummy_data } from '@/data';
 import { DummyCategoryType } from '@/types/dummy_types';
+import LoaderS from '@/ELEMENTX/Ui/Loader/LoaderS';
 
 const CategoryDetailPage = ({id} : {
   id :string,
@@ -10,6 +11,8 @@ const CategoryDetailPage = ({id} : {
 {
 
   let [category,setCategory] = useState<DummyCategoryType>()
+  let [isLoading,setIsLoading] = useState(false);
+
 
 //To fetch api in real time.
 let FetchData = () => {
@@ -25,7 +28,7 @@ useEffect(()=>{
 
   return (
 category == undefined ? 
-<div>Loading....</div>
+<LoaderS/>
 : 
 <div className='qt-main'>
 <div className="qt-title main-f ">{category.name} Questions</div>
