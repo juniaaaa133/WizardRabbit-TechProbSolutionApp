@@ -31,6 +31,10 @@ setQuestionData(filteredData);
   }
 }
 
+let RemoveSearchedString = () => {
+    setQuestionData([]);
+}
+
   return (
     <>
     <div className='nv-main'>
@@ -61,7 +65,7 @@ setQuestionData(filteredData);
     <div className={questionData?.length == 0 || questionData == undefined ? "nv-srh-res-ctn-closed" : "nv-srh-res-ctn"}>
        {
         questionData?.map((data,index: number) => (
-            <div key={index} className="nv-res bg-ter mega-trans bcu">
+            <Link onClick={RemoveSearchedString} href={`/questions/${data.category_path}/${data.id}`} key={index} className="nv-res bg-ter mega-trans bcu">
             <TagX text='JavaScript'/>
             <div className="nv-title main-f">
                 {
@@ -73,7 +77,7 @@ setQuestionData(filteredData);
                     data.answer.length > 90 ? data.answer.substring(0,90) + '...See More' : data.answer
                 }
             </div>
-                    </div>
+                    </Link>
         ))
        }
     
