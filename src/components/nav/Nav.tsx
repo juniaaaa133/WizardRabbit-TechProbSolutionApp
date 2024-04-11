@@ -49,7 +49,7 @@ let RemoveSearchedString = () => {
                 <Link className='nvs fontclH mega-trans sys-f text-[13px] ' href='/category' >Category</Link>
                 <CiSearch onClick={()=>setIsOpenedSearch(true)} className={isOpenedSearch == false ? 'bcu nv-srh-icn fontcl' : 'hidden'} />
                 <TbZoomCancel onClick={()=>setIsOpenedSearch(false)} className={isOpenedSearch == true ? 'bcu nv-srh-icn fontcl' : 'hidden'} />
-                <CiMenuBurger onClick={()=>setIsOpenedMenu(true)} className={'bcu nv-srh-icn fontcl' } />
+                <CiMenuBurger onClick={()=>setIsOpenedMenu(true)} className={'bcu nv-menu-icn fontcl' } />
             </div>
             
             <div className="nv-srh">

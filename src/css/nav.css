@@ -56,7 +56,10 @@ align-items: center;
 .nv-srh-icn {
     display: none;
     font-size: 18px;
-
+}
+.nv-menu-icn { 
+    display: none;
+    font-size: 18px;
 }
 .nv-cancel-icn{
     font-size: 18px;
@@ -123,6 +126,9 @@ align-items: center;
      }
      .nvmb-srh {
          width:100%;
+     }
+     .nv-menu-icn {
+        display: block;
      }
      
 .nv-srh-res-ctn {
