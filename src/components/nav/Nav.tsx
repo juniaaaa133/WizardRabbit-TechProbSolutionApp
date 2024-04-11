@@ -63,7 +63,7 @@ let RemoveSearchedString = () => {
     </div>
     <div className="nv-srh-res-main">
     <div className={questionData?.length == 0 || questionData == undefined ? "nv-srh-res-ctn-closed" : "nv-srh-res-ctn"}>
-       {
+       {  
         questionData?.map((data,index: number) => (
             <Link onClick={RemoveSearchedString} href={`/questions/${data.category_path}/${data.id}`} key={index} className="nv-res bg-ter mega-trans bcu">
             <TagX text='JavaScript'/>
