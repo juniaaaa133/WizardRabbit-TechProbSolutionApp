@@ -1,13 +1,35 @@
 'use client'
+import { dummy_data } from '@/data';
 import { HandleEmail } from '@/features/emailjs/sendEmail';
+import { DummyCategoryType, DummyQuestionType } from '@/types/dummy_types';
 import { useRouter } from 'next/navigation'
-import React, { ChangeEvent, useRef, useState } from 'react'
+import React, { ChangeEvent, useEffect, useRef, useState } from 'react'
+import Category from '../category/Category';
+import Question from '../question/Question';
+import LoaderS from '@/ELEMENTX/Ui/Loader/LoaderS';
 
 const Homepage = () => {
 
 let route = useRouter();
 let emailMessageRef = useRef<HTMLFormElement>(null)
 let [isMessaged,setIsMessaged] = useState<boolean>(false);
+
+let [categoryData,setcategoryData] = useState<DummyCategoryType[]>();
+let [questionData,setQuestionData] = useState<DummyQuestionType[]>()
+
+//Fetch api data in real time;
+let FetchData = () => {
+  //api fetch instead of dummy_data;
+  
+  let filteredCategoryArr = dummy_data.categories.sort((a,b) => b.id-a.id);
+  let filteredQuestionArr = dummy_data.questions.sort((a,b) => b.id - a.id);
+  setcategoryData(filteredCategoryArr);
+  setQuestionData(filteredQuestionArr);
+}
+
+useEffect(()=>{
+  FetchData();
+},[])
 
 //Made a function that send submitted data to emailjs using useRef.
 let HandleSubmit = (e :ChangeEvent<HTMLFormElement>) => {
@@ -19,6 +41,9 @@ let HandleSubmit = (e :ChangeEvent<HTMLFormElement>) => {
 }
 
   return (
+    questionData == undefined || categoryData == undefined ?
+    <LoaderS />
+    :
     <div className='hm-main'>
       <div className="hm-hero-ctn">
         <div className="hm-hero-info-ctn">
@@ -49,6 +74,34 @@ let HandleSubmit = (e :ChangeEvent<HTMLFormElement>) => {
 </form>
 <div className="hm-form-title main-f fontcl">If you have question to ask, feel free to share us.</div>
       </div>
+    <div className="hm-cate-ctn bar">
+    <div className="qt-title main-f ">Leatest Categories</div>
+      <div className="cat-ctn">
+{
+  categoryData.map((data,index: number) => {
+    if(index <= 3){
+      return(
+        <Category title={data.name} questions_count={data.questions.length} link_path={data.type}  key={index}/>
+      )
+    }
+  })
+}
+      </div>
+    </div>
+    <div className="hm-q-ctn bar">
+    <div className="qt-title main-f ">Leatest Categories</div>
+      <div className="q-ctn">
+{
+questionData.map((data,index: number) => {
+  if(index <= 3){
+    return(
+      <Question key={index} tag={data.category} id={data.id} link_url={data.category_path} date={data.date} answer={data.answer} question={data.title} />
+      )
+  }
+})
+}
+   </div>
+    </div>
     </div>
   )
 }
